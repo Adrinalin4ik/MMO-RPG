@@ -15,9 +15,9 @@ Play.prototype = {
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.initMap();
-        this.initPathfinder();
-        this.initCursor();
-        this.setupSpriteGroups();
+        //this.initPathfinder();
+        //this.initCursor();
+        //this.setupSpriteGroups();
         //this.addMainPlayer();
         //this.configPlayerCollisions();
         //this.initChatModule();

@@ -5,7 +5,7 @@ MMO game using Phaser.io Express and Socket.IO
 This is an MMO game using phaser.IO socket.io and express.
 
 
-[Current version](https://mmorpg-test.herokuapp.com/)
+[Current version](https://mmo-rpg.herokuapp.com/)
 
 
 Requirements
