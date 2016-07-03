@@ -1,0 +1,67 @@
+#game-chat-box{
+
+  // variables to make the chat box configuration a little bit less confusing
+  @chatboxWidth: 400px;
+  @messagesBoxHeight: 120px;
+  @inputHeight: 20px;
+  @bottomSpacing: 142px;
+
+
+  width: @chatboxWidth;
+  float: right;
+
+  position:relative;
+  bottom: @bottomSpacing;
+
+  .game-chat-messages{
+    width: 390px;
+    height: @messagesBoxHeight;
+
+    overflow-y: scroll;
+    background: #000;
+    background: rgba(0,0,0, .5);
+    color: white;
+    font-size: 9pt;
+    font-family: @game-font;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+  }
+
+  .game-chat-input{
+    width: 100%;
+    border: 0;
+    height: @inputHeight;
+    font-size:9pt;
+  }
+
+  .game-message-author{
+    color: #E9D246;
+  }
+
+  .game-message {
+    font-size: 8pt;
+    font-weight: bold;
+  }
+  .game-message-type-info {
+    .message-author{
+      font-style: italic;
+      color: #dbe7ff;
+    }
+  }
+
+  .game-message-type-error {
+    color: #ff5b54;
+
+    .message-author{
+      font-style: italic;
+      color: #dbe7ff;
+    }
+  }
+}
