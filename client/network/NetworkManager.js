@@ -10,7 +10,7 @@ var networkManager = {
     connected: false,
     connect: function (player) {
         mainPlayer = player;
-        serverSocket = io.connect('http://localhost:9192');
+        serverSocket = io.connect('https://mmorpg-test.herokuapp.com/');
         serverSocket.on('connect', onConnectedToServer);
 
         this.configureIncomingTraffic();

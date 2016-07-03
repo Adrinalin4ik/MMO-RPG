@@ -1,8 +1,8 @@
 {
-  "name": "mmo_rpg",
+  "name": "mmo_demo",
   "version": "1.0.0",
-  "description": "Tilesets mmo rpg",
-  "author": "Adrinalin4ik",
+  "description": "mmo example with phaser express and socket.io",
+  "author": "Marwane",
   "license": "ISC",
   "devDependencies": {
     "auto-reload-brunch": "^1.8.0",
@@ -10,7 +10,10 @@
     "javascript-brunch": "^1.7.1",
     "less-brunch": "^1.8.1"
   },
+  "postinstall": "node node_modules/brunch/bin/brunch build --production",
   "dependencies": {
+	"statik": ">= 1.1.0",
+	"brunch": "1.x",
     "express": "^4.13.3",
     "morgan": "^1.6.1",
     "path": "^0.12.7",
