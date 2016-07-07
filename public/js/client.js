@@ -824,12 +824,12 @@ Play.prototype = {
         var startY = (88 * Pathfinder.tileSize) + (Pathfinder.tileSize / 2);
 
         this.mainPlayer = new CharacterObj(this.game, startX, startY, true);
-        //this.game.camera.follow(this.mainPlayer.sprite);
+        this.game.camera.follow(this.mainPlayer.sprite);
         //this.game.camera.deadzone = new Phaser.Rectangle(this.mainPlayer.sprite.x, this.mainPlayer.sprite.y, 600, 400);
-        this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2, 
+        /*this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2, 
                                                          this.game.camera.y+this.mainPlayer.sprite.height*2, 
                                                          this.game.width-this.mainPlayer.sprite.width*4, 
-                                                         this.game.height-this.mainPlayer.sprite.height*4);
+                                                         this.game.height-this.mainPlayer.sprite.height*4);*/
         console.log(this.game)
         this.mainPlayer.nickname = this.game.mainPlayerName;
 
@@ -937,7 +937,7 @@ Play.prototype = {
         this.updateCursorPosition();
         this.checkMainPlayerCollision();
 
-        var zone = this.game.camera.deadzone;
+        /*var zone = this.game.camera.deadzone;
         
 
         if (this.mainPlayer.sprite.x>zone.x+zone.width){
@@ -978,7 +978,7 @@ Play.prototype = {
         }
 
         red_zone.lineStyle(2, 0x000000, 1);
-        red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);
+        red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);*/
 
 
           if (cursors.left.isDown)

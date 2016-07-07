@@ -106,10 +106,10 @@ Play.prototype = {
         this.mainPlayer = new CharacterObj(this.game, startX, startY, true);
         this.game.camera.follow(this.mainPlayer.sprite);
         //this.game.camera.deadzone = new Phaser.Rectangle(this.mainPlayer.sprite.x, this.mainPlayer.sprite.y, 600, 400);
-        this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2, 
+        /*this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2, 
                                                          this.game.camera.y+this.mainPlayer.sprite.height*2, 
                                                          this.game.width-this.mainPlayer.sprite.width*4, 
-                                                         this.game.height-this.mainPlayer.sprite.height*4);
+                                                         this.game.height-this.mainPlayer.sprite.height*4);*/
         console.log(this.game)
         this.mainPlayer.nickname = this.game.mainPlayerName;
 
