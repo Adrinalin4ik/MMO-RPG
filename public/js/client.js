@@ -528,13 +528,13 @@ var onOtherPlayerConnectedCallback;
 var onOtherPlayerMove;
 var onUpdatePlayerListCallback;
 var onReceiveChatMessageCallback;
- 
+
 var networkManager = {
     connected: false,
     connect: function (player) {
         mainPlayer = player;
         serverSocket = io.connect('https://mmorpg-test.herokuapp.com/');
-        //serverSocket = io.connect('http://localhost:9192');
+        // serverSocket = io.connect('http://localhost:9192');
         serverSocket.on('connect', onConnectedToServer);
 
         this.configureIncomingTraffic();
@@ -614,7 +614,8 @@ Boot.prototype = {
         this.game.stage.disableVisibilityChange = true;
         this.game.stage.backgroundColor = 0x3b0760;
         this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
-
+        this.saveCPU = this.game.plugins.add(new Phaser.Plugin.SaveCPU)
+        console.log(this.saveCPU)
         this.showLoadingText();
         this.loadAssets();
     },
@@ -737,8 +738,8 @@ Play.prototype = {
 
         this.initMap();
         console.log(this.game)
-       
-        
+
+
         //this.initPathfinder();
         //this.initCursor();
         //this.setupSpriteGroups();
@@ -824,12 +825,12 @@ Play.prototype = {
         var startY = (88 * Pathfinder.tileSize) + (Pathfinder.tileSize / 2);
 
         this.mainPlayer = new CharacterObj(this.game, startX, startY, true);
-        this.game.camera.follow(this.mainPlayer.sprite);
+        //this.game.camera.follow(this.mainPlayer.sprite);
         //this.game.camera.deadzone = new Phaser.Rectangle(this.mainPlayer.sprite.x, this.mainPlayer.sprite.y, 600, 400);
-        /*this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2, 
-                                                         this.game.camera.y+this.mainPlayer.sprite.height*2, 
-                                                         this.game.width-this.mainPlayer.sprite.width*4, 
-                                                         this.game.height-this.mainPlayer.sprite.height*4);*/
+        this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width*2,
+                                                         this.game.camera.y+this.mainPlayer.sprite.height*2,
+                                                         this.game.width-this.mainPlayer.sprite.width*4,
+                                                         this.game.height-this.mainPlayer.sprite.height*4);
         console.log(this.game)
         this.mainPlayer.nickname = this.game.mainPlayerName;
 
@@ -936,49 +937,49 @@ Play.prototype = {
     update: function(){
         this.updateCursorPosition();
         this.checkMainPlayerCollision();
+        //this.game.camera.setPosition(this.mainPlayer.sprite.x, this.mainPlayer.sprite.y);
+        var zone = this.game.camera.deadzone;
 
-        /*var zone = this.game.camera.deadzone;
-        
 
         if (this.mainPlayer.sprite.x>zone.x+zone.width){
             console.log(this.game.camera.deadzone)
-            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.deadzone.x+this.game.camera.deadzone.width, 
-                                                             this.game.camera.y+this.mainPlayer.sprite.height, 
-                                                             this.game.width-this.mainPlayer.sprite.width*4, 
+            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.deadzone.x+this.game.camera.deadzone.width,
+                                                             this.game.camera.y+this.mainPlayer.sprite.height,
+                                                             this.game.width-this.mainPlayer.sprite.width*4,
                                                              this.game.height - this.mainPlayer.sprite.height*4);
             this.game.camera.setPosition(this.game.camera.deadzone.x-this.mainPlayer.sprite.width, this.camera.y);
-            
+
         }
         if (this.mainPlayer.sprite.y>zone.y+zone.height){
             console.log(this.game.camera.deadzone)
-            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width, 
-                                                             this.game.camera.deadzone.y+this.game.camera.deadzone.height,  
-                                                             this.game.width-this.mainPlayer.sprite.width*4, 
+            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width,
+                                                             this.game.camera.deadzone.y+this.game.camera.deadzone.height,
+                                                             this.game.width-this.mainPlayer.sprite.width*4,
                                                              this.game.height - this.mainPlayer.sprite.height*4);
             this.game.camera.setPosition(this.camera.x, this.game.camera.deadzone.y-this.mainPlayer.sprite.height);
-            
+
         }
         /////
         if (this.mainPlayer.sprite.x<this.game.camera.deadzone.x){
             // console.log(this.game.camera.deadzone)
             console.log('here')
-            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.deadzone.x-this.game.camera.deadzone.width*4, 
-                                                             this.game.camera.y+this.mainPlayer.sprite.height, 
-                                                             this.game.width-this.mainPlayer.sprite.width*4, 
+            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.deadzone.x-this.game.camera.deadzone.width*4,
+                                                             this.game.camera.y+this.mainPlayer.sprite.height,
+                                                             this.game.width-this.mainPlayer.sprite.width*4,
                                                              this.game.height - this.mainPlayer.sprite.height*4);
             this.game.camera.setPosition(this.game.camera.deadzone.x-this.mainPlayer.sprite.width, this.camera.y);
         }
         if (this.mainPlayer.sprite.y<this.game.camera.deadzone.y){
             // console.log(this.game.camera.deadzone)
-            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width, 
-                                                             this.game.camera.deadzone.y-this.game.camera.deadzone.height*4,  
-                                                             this.game.width-this.mainPlayer.sprite.width*4, 
+            this.game.camera.deadzone = new Phaser.Rectangle(this.game.camera.x+this.mainPlayer.sprite.width,
+                                                             this.game.camera.deadzone.y-this.game.camera.deadzone.height*4,
+                                                             this.game.width-this.mainPlayer.sprite.width*4,
                                                              this.game.height - this.mainPlayer.sprite.height*4);
             this.game.camera.setPosition(this.camera.x, this.game.camera.deadzone.y-this.mainPlayer.sprite.height);
         }
 
         red_zone.lineStyle(2, 0x000000, 1);
-        red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);*/
+        red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);
 
 
           if (cursors.left.isDown)

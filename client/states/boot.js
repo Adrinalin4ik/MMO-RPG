@@ -7,7 +7,8 @@ Boot.prototype = {
         this.game.stage.disableVisibilityChange = true;
         this.game.stage.backgroundColor = 0x3b0760;
         this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
-
+        this.saveCPU = this.game.plugins.add(new Phaser.Plugin.SaveCPU)
+        console.log(this.saveCPU)
         this.showLoadingText();
         this.loadAssets();
     },
