@@ -1033,7 +1033,7 @@ var mainPlayerName;
 
 function init(containerId){
     initGuiElements(containerId);
-    appendSystemMessage('info', 'Welcome ' + mainPlayerName + ' to this Demo');
+    appendSystemMessage('info', 'Welcome ' + mainPlayerName + ' to test mmo');
 }
 
 /*
@@ -1124,6 +1124,7 @@ module.exports = {
     systemMessage: appendSystemMessage,
     setMainPlayerName: setMainPlayerName
 };
+
 });
 
 require.register("client/utils/DomHelper", function(exports, require, module) {
