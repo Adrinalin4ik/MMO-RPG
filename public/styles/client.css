@@ -86,7 +86,6 @@
 }
 .game-scoreboard {
   top: 0;
-  left: 85%;
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   width: 200px;
