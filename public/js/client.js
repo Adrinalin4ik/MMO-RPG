@@ -1065,8 +1065,11 @@ function initGuiElements(containerId){
     chatInput.type = 'text';
     chatInput.className = 'game-chat-input';
 
-    chatForm.appendChild(chatInput);
+    // var openChatBtn = document.createElement('div');
+    // openChatBtn.className = 'game-chat-open_btn';
 
+    chatForm.appendChild(chatInput);
+    // chatBox.appendChild(openChatBtn);
     chatBox.appendChild(messagesBox);
     chatBox.appendChild(chatForm);
 
@@ -1211,10 +1214,14 @@ module.exports = {
     addToContainer: function(element){
         containerElement.appendChild(element);
     },
+    before: function(element){
+        containerElement.insertBefore(element,containerElement.firstChild);
+    },
     getX: getX,
     getY: getY
 
 };
+
 });
 
 require.register("client/utils/Pathfinder", function(exports, require, module) {
@@ -1269,7 +1276,7 @@ function init(){
     scoreContainer.appendChild(title);
     scoreContainer.appendChild(scoreList);
 
-    DomHelper.addToContainer(scoreContainer);
+    DomHelper.before(scoreContainer);
 }
 
 function setScores(scores){

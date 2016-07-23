@@ -17,7 +17,7 @@ function init(){
     scoreContainer.appendChild(title);
     scoreContainer.appendChild(scoreList);
 
-    DomHelper.addToContainer(scoreContainer);
+    DomHelper.before(scoreContainer);
 }
 
 function setScores(scores){

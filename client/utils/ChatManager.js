@@ -39,8 +39,11 @@ function initGuiElements(containerId){
     chatInput.type = 'text';
     chatInput.className = 'game-chat-input';
 
-    chatForm.appendChild(chatInput);
+    // var openChatBtn = document.createElement('div');
+    // openChatBtn.className = 'game-chat-open_btn';
 
+    chatForm.appendChild(chatInput);
+    // chatBox.appendChild(openChatBtn);
     chatBox.appendChild(messagesBox);
     chatBox.appendChild(chatForm);
 

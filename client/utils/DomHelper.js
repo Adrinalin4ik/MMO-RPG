@@ -81,6 +81,9 @@ module.exports = {
     addToContainer: function(element){
         containerElement.appendChild(element);
     },
+    before: function(element){
+        containerElement.insertBefore(element,containerElement.firstChild);
+    },
     getX: getX,
     getY: getY
 
