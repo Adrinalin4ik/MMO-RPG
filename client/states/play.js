@@ -257,8 +257,8 @@ Play.prototype = {
             this.game.camera.setPosition(this.camera.x, this.game.camera.deadzone.y-this.mainPlayer.sprite.height);
         }
 
-        red_zone.lineStyle(2, 0x000000, 1);
-        red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);
+      //  red_zone.lineStyle(2, 0x000000, 1);
+      //  red_zone.drawRect(zone.x, zone.y, zone.width, zone.height);
 
 
           if (cursors.left.isDown)
