@@ -11,7 +11,7 @@ This is an MMO game using phaser.IO socket.io and express.
 Requirements
 -------------
 
-You need to install [NodeJS](https://nodejs.org) and [Brunch.io](http://brunch.io/) to run this example.
+You need install [NodeJS](https://nodejs.org) and [Brunch.io](http://brunch.io/) to run this example.
 
 Installation
 -------------
