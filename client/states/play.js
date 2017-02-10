@@ -55,7 +55,8 @@ Play.prototype = {
         this.map.createLayer('ground');
         this.initPathfinder();
         this.initCursor();
-        this.setupSpriteGroups()
+        this.setupSpriteGroups();
+        //this.addOtherPlayer(receivedPlayer);
         this.addMainPlayer();
         this.configPlayerCollisions();
         this.initChatModule();

@@ -632,8 +632,8 @@ Boot.prototype = {
         //this.game.load.tilemap('tilemap', 'gameAssets/map/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
         //this.game.load.image('tileset', 'gameAssets/map/tileset.png');
 
-        this.game.load.tilemap('tilemap1', 'gameAssets/map/tilemap1.json', null, Phaser.Tilemap.TILED_JSON);
-        //this.game.load.image('tileset1', 'gameAssets/map/tileset1.png');
+        this.game.load.tilemap('tilemap1', 'gameAssets/map/tilemap.json', null, Phaser.Tilemap.TILED_JSON);
+        //this.game.load.image('tileset1', 'gameAssets/map/tileset1.png')
         this.game.load.image('tileset2', 'gameAssets/map/tileset2.png');
         this.game.load.image('tileset3', 'gameAssets/map/tileset3.png');
         this.game.load.image('tileset4', 'gameAssets/map/tileset4.png');
@@ -776,7 +776,8 @@ Play.prototype = {
         this.map.createLayer('ground');
         this.initPathfinder();
         this.initCursor();
-        this.setupSpriteGroups()
+        this.setupSpriteGroups();
+        //this.addOtherPlayer(receivedPlayer);
         this.addMainPlayer();
         this.configPlayerCollisions();
         this.initChatModule();
